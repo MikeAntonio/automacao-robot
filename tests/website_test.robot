@@ -9,7 +9,7 @@ Suite Teardown    Close Browser
 
 *** Test Cases ***
 Test Website Access Success
-    [Documentation]    Verifica se o site carrega com sucesso
+    [Documentation]    Verifica se o site carrega com sucesso SIM
     Title Should Be    Google
     Page Should Contain Element    css:form
 
