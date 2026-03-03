@@ -46,11 +46,3 @@ jobs:
       with:
         name: robot-test-results
         path: results/
-
-    - name: Publish test report
-      if: always()
-      uses: dorny/test-reporter@v1
-      with:
-        name: Robot Framework Test Results
-        path: 'results/output.xml'
-        reporter: 'java-junit'
