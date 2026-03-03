@@ -52,5 +52,5 @@ jobs:
       uses: dorny/test-reporter@v1
       with:
         name: Robot Framework Test Results
-        path: 'results/report.xml'
+        path: 'results/output.xml'
         reporter: 'java-junit'
