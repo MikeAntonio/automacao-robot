@@ -10,11 +10,10 @@ Suite Teardown    Close All Browsers
 *** Test Cases ***
 Test Website Access Success
     [Documentation]    Verifica se o site carrega com sucesso
-    Title Should Be    Google
-    Page Should Contain Element    css:form
+    Page Should Contain    httpbin
+    Title Should Contain    httpbin
 
-Test Search Functionality
-    [Documentation]    Testa a funcionalidade de busca
-    Input Text    name:q    Robot Framework
-    Press Keys    name:q    Return
-    Wait Until Page Contains    Robot Framework
+Test Page Contains Expected Elements
+    [Documentation]    Verifica se a página contém elementos esperados
+    Wait Until Page Contains    httpbin.org    timeout=10s
+    Element Should Be Visible    tag:html

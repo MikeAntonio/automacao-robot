@@ -6,10 +6,12 @@ Library    chrome_helper
 Open Browser With Chrome Options
     [Arguments]    ${url}    ${headless}=False
     ${options}=    Get Chrome Options    ${headless}
-    Log    Opening browser with headless=${headless}
+    Log    Opening browser with URL: ${url}
+    Log    Headless mode: ${headless}
     Open Browser    ${url}    Chrome    options=${options}
+    Log    Browser opened successfully
     Set Selenium Implicit Wait    5s
-    Wait Until Page Contains Element    body    timeout=${TIMEOUT}
+    Wait Until Element Is Visible    tag:html    timeout=${TIMEOUT}
 
 Open Website And Verify Load
     [Arguments]    ${url}    ${browser}=Chrome
