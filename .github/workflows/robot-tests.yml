@@ -41,6 +41,7 @@ jobs:
       run: |
         robot --outputdir results \
                --loglevel DEBUG \
+               --pythonpath resources \
                --variable HEADLESS:True \
                tests/
 
