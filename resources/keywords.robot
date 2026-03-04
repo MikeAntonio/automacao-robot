@@ -4,11 +4,11 @@ Library    SeleniumLibrary
 *** Keywords ***
 Open Browser With Chrome Options
     [Arguments]    ${url}    ${headless}=False
-    ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
-    Call Method    ${options}    add_argument    --no-sandbox
-    Call Method    ${options}    add_argument    --disable-dev-shm-usage
-    Run Keyword If    ${headless}    Call Method    ${options}    add_argument    --headless
-    Open Browser    ${url}    Chrome    options=${options}
+    ${chrome_options}=    Evaluate    sys.modules['selenium.webdriver.chrome.options'].Options()    sys, sys.modules
+    Call Method    ${chrome_options}    add_argument    --no-sandbox
+    Call Method    ${chrome_options}    add_argument    --disable-dev-shm-usage
+    Run Keyword If    '${headless}'=='True'    Call Method    ${chrome_options}    add_argument    --headless=new
+    Open Browser    ${url}    Chrome    options=${chrome_options}
     Wait Until Page Contains Element    body    timeout=${TIMEOUT}
 
 Open Website And Verify Load
