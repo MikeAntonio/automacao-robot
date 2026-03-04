@@ -36,13 +36,18 @@ jobs:
           xvfb \
           libxss1
     
+    - name: Verify Chrome installation
+      run: |
+        which google-chrome
+        google-chrome --version
+    
     - name: Run Robot Framework Tests
       run: |
-        robot --outputdir results \
-               --loglevel DEBUG \
-               --pythonpath resources \
-               --variable HEADLESS:True \
-               tests/
+        xvfb-run -a robot --outputdir results \
+                          --loglevel DEBUG \
+                          --pythonpath resources \
+                          --variable HEADLESS:True \
+                          tests/
 
     - name: Upload test results
       if: always()

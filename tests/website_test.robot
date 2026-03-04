@@ -4,7 +4,7 @@ Resource    ../resources/keywords.robot
 Resource    ../resources/variables.robot
 
 Suite Setup    Open Browser With Chrome Options    ${BASE_URL}    ${HEADLESS}
-Suite Teardown    Close Browser
+Suite Teardown    Close All Browsers
 
 
 *** Test Cases ***
