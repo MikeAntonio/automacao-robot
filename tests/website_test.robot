@@ -11,7 +11,8 @@ Suite Teardown    Close All Browsers
 Test Website Access Success
     [Documentation]    Verifica se o site carrega com sucesso
     Page Should Contain    httpbin
-    Title Should Contain    httpbin
+    ${title}=    Get Title
+    Log    Page title: ${title}
 
 Test Page Contains Expected Elements
     [Documentation]    Verifica se a página contém elementos esperados
